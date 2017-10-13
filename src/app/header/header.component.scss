@@ -1,15 +1,16 @@
+@import "../../styles/variables";
 
-.header {
+#app-header {
   background-image: url("../../assets/header-image.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   height: 12rem;
-}
 
-.header h1 {
-  vertical-align: bottom;
-  text-align: right;
-  padding: 7rem 3em 2rem 0;
-  font-size: 5rem;
-  color: #fff;
+  h1 {
+    vertical-align: bottom;
+    text-align: right;
+    padding: 6rem 3em 2rem 0;
+    font-size: 5rem;
+    color: $text-color-1;
+  }
 }

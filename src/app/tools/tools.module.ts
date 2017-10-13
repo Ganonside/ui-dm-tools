@@ -6,6 +6,9 @@ import { ToolsComponent } from './tools.component';
   imports: [
     CommonModule
   ],
-  declarations: [ToolsComponent]
+  declarations: [ToolsComponent],
+  exports: [
+    ToolsComponent
+  ]
 })
 export class ToolsModule { }
