@@ -4,4 +4,26 @@
   background-color: $bg-color-2;
   margin: 0 1rem;
   border-radius: 3px;
+
+  .row {
+    margin: unset;
+  }
+}
+
+.dm-btn-group {
+  width: 100%;
+  border: 1px solid $bg-color-2;
+  border-right: 0px;
+}
+
+.dm-btn {
+  color: black;
+
+  &:not(:last-child) {
+    border-right: 1px solid black;
+  }
+
+  & + & {
+    border-left: 1px solid black;
+  }
 }

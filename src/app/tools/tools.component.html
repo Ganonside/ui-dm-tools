@@ -1,4 +1,13 @@
 
 <div id="app-tools">
-  It works!
+  <div class="row dm-btn-group btn-group" role="group" aria-label="show-tools">
+    <button type="button" class="dm-btn btn btn-secondary col-lg-4" (click)=[toggleInitiative()]>Initiative</button>
+    <button type="button" class="dm-btn btn btn-secondary col-lg-4" (click)=[toggleStatus()]>Status</button>
+    <button type="button" class="dm-btn btn btn-secondary col-lg-4" (click)=[toggleSpells]>Spells</button>
+  </div>
+  <div class="row">
+    <div class="dm-initiative" *ngIf="showInitiative">
+      {{this.showInitiative}}
+    </div>
+  </div>
 </div>
