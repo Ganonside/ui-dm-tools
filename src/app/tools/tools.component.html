@@ -1,13 +1,44 @@
 
 <div id="app-tools">
-  <div class="row dm-btn-group btn-group" role="group" aria-label="show-tools">
-    <button type="button" class="dm-btn btn btn-secondary col-lg-4" (click)=[toggleInitiative()]>Initiative</button>
-    <button type="button" class="dm-btn btn btn-secondary col-lg-4" (click)=[toggleStatus()]>Status</button>
-    <button type="button" class="dm-btn btn btn-secondary col-lg-4" (click)=[toggleSpells]>Spells</button>
-  </div>
+  <form [formGroup]="show">
+    <div class="row btn-group dm-btn-group" data-toggle="buttons">
+      <label class="btn btn-secondary dm-btn col-4">
+        <input type="checkbox" autocomplete="off" formControlName="initiative"> Initiative
+      </label>
+      <label class="btn btn-secondary dm-btn col-4">
+        <input type="checkbox" autocomplete="off" checked="{{this.show.value.status}}" formControlName="status"> Status
+      </label>
+      <label class="btn btn-secondary dm-btn col-4">
+        <input type="checkbox" autocomplete="off" formControlName="spells"> Spells
+      </label>
+    </div>
+  </form>
   <div class="row">
-    <div class="dm-initiative" *ngIf="showInitiative">
-      {{this.showInitiative}}
+    <div class="dm-initiative col-4" *ngIf="show.value.initiative">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Initiative</h4>
+          <p class="card-text">Initiative cards go here!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dm-status col-4" *ngIf="show.value.status">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Status</h4>
+          <p class="card-text">Status cards go here!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dm-spells col-4" *ngIf="show.value.spells">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Spells</h4>
+          <p class="card-text">Spell cards go here!</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

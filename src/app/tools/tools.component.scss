@@ -26,4 +26,10 @@
   & + & {
     border-left: 1px solid black;
   }
+
+  & > input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+  }
 }

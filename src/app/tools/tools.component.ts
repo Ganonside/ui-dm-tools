@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tools',
@@ -6,24 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tools.component.scss']
 })
 export class ToolsComponent implements OnInit {
-  public showInitiative = true;
-  public showStatus = true;
-  public showSpells = false;
+  public show = new FormGroup({
+    initiative: new FormControl(),
+    status: new FormControl(),
+    spells: new FormControl()
+  });
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
-  public toggleInitiative(): void {
-    this.showInitiative = !this.showInitiative;
-  }
+  calcCardWidth(): number {
+    let cardsActive = 0;
+    cardsActive += this.show.value.initiative | 0;
+    cardsActive += this.show.value.status | 0;
+    cardsActive += this.show.value.spells | 0;
 
-  public toggleStatus(): void {
-    this.showStatus = !this.showStatus;
-  }
+    let width = (4 - cardsActive) * 4;
+    console.log(width);
 
-  public toggleSpells(): void {
-    this.showSpells = !this.showSpells;
+    return width;
   }
 }
