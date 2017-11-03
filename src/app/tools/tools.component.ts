@@ -12,22 +12,26 @@ export class ToolsComponent implements OnInit {
     status: new FormControl(),
     spells: new FormControl()
   });
+  public cardWidth: string;
 
   constructor() { }
 
   ngOnInit(): void {
-
+    this.show.valueChanges.subscribe(form => {
+      this.calcCardWidth();
+    });
   }
 
-  calcCardWidth(): number {
+  calcCardWidth(): void {
     let cardsActive = 0;
-    cardsActive += this.show.value.initiative | 0;
-    cardsActive += this.show.value.status | 0;
-    cardsActive += this.show.value.spells | 0;
+    cardsActive += this.show.value.initiative ? 1 : 0;
+    cardsActive += this.show.value.status ? 1 : 0;
+    cardsActive += this.show.value.spells ? 1 : 0;
 
-    let width = (4 - cardsActive) * 4;
+    const width = 12 / cardsActive;
     console.log(width);
 
-    return width;
+    this.cardWidth = `col-${width}`;
+    console.log(this.cardWidth);
   }
 }

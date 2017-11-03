@@ -14,7 +14,7 @@
     </div>
   </form>
   <div class="row">
-    <div class="dm-initiative col-4" *ngIf="show.value.initiative">
+    <div class="dm-initiative" ngClass="{{this.cardWidth}}" *ngIf="show.value.initiative">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Initiative</h4>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="dm-status col-4" *ngIf="show.value.status">
+    <div class="dm-status" ngClass="{{this.cardWidth}}" *ngIf="show.value.status">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Status</h4>
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="dm-spells col-4" *ngIf="show.value.spells">
+    <div class="dm-spells" ngClass="{{this.cardWidth}}" *ngIf="show.value.spells">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Spells</h4>
