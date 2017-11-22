@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+#app-combat {
+  background-color: $bg-color-2;
+  margin: 0 1rem;
+  border-radius: 3px;
+
+  .row {
+    margin: unset;
+  }
+}
