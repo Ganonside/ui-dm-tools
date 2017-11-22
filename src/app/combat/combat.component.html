@@ -1,5 +1,25 @@
+
 <div id="app-combat">
-  <div class="row">
-    <button class="btn btn-primary" *ngIf="!started" (click)="startCombat()">Start New Combat!</button>
+  <div class="row" *ngIf="!started">
+    <button class="btn btn-secondary col-12" (click)="startCombat()">
+      Start New Combat!
+    </button>
   </div>
+
+  <form [formGroup]="characterForm" *ngIf="editing" novalidate>
+    <h3>Character Form</h3>
+    <div class="row">
+      <div class="form-group">
+        <label for="" class="center-block">
+          <input class="form-control underline" formControlName="name" placeholder="Name">
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <p>{{ characterForm.value | json }}</p>
+    </div>
+    <div class="row">
+      <p>{{ characterForm.status | json }}</p>
+    </div>
+  </form>
 </div>

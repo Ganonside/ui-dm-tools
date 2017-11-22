@@ -3,9 +3,18 @@
 #app-combat {
   background-color: $bg-color-2;
   margin: 0 1rem;
+  padding: 0 1rem;
   border-radius: 3px;
 
   .row {
     margin: unset;
   }
+}
+
+input.underline {
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid black;
+  border-radius: 0;
+  outline: 0;
 }
