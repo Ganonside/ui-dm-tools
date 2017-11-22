@@ -7,35 +7,32 @@
   </div>
 
   <form [formGroup]="characterForm" *ngIf="editing" novalidate>
-    <h3>Character Form</h3>
-    <div class="row">
-      <div class="form-group">
-        <input type="text" class="form-control underline" formControlName="name" placeholder="Name">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control underline" formControlName="health" placeholder="HP">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control underline" formControlName="initiative" placeholder="Initiative">
-      </div>
-      <div class="form-group">
-        <select class="form-control underline" formControlName="team">
-          <option *ngFor="let team of teams | mapToIterable" [value]="team.id">{{team.name}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <select class="form-control underline" formControlName="type">
-          <option *ngFor="let type of characterTypes | mapToIterable" [value]="type.id">{{type.name}}</option>
-        </select>
+    <div formGroupName="characters">
+      <h4>Character Form</h4>
+      <div formGroupName="character-0" class="row">
+        <div class="form-group">
+          <input type="text" class="form-control underline" formControlName="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control underline" formControlName="health" placeholder="HP">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control underline" formControlName="initiative" placeholder="Initiative">
+        </div>
+        <div class="form-group">
+          <select class="form-control underline" formControlName="team">
+            <option *ngFor="let team of teams | mapToIterable" [value]="team.id">{{team.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control underline" formControlName="type">
+            <option *ngFor="let type of characterTypes | mapToIterable" [value]="type.id">{{type.name}}</option>
+          </select>
+        </div>
       </div>
     </div>
+    <!-- <div *ngFor="character in combatForm.get('characters')">
 
-    <div class="row">
-      <p>{{ characterForm.value | json }}</p>
-    </div>
-
-    <div class="row">
-      <p>{{ characterForm.status | json }}</p>
-    </div>
+    </div> -->
   </form>
 </div>

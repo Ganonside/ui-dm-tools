@@ -15,19 +15,16 @@ export class CombatComponent implements OnInit {
   public turn: number;
 
   characterForm: FormGroup;
+  numberOfCharacters = 1;
   characterTypes = CharacterTypes;
   effectTypes = EffectTypes;
   teams = Teams;
 
   constructor(private fb: FormBuilder) {
     this.characterForm = this.fb.group({
-      name: ['', Validators.required],
-      health: 0,
-      initiative: [0, Validators.required],
-      team: [Teams.Party1, Validators.required],
-      type: [CharacterTypes.PC, Validators.required],
-      effects: [],
-      hidden: [false, Validators.required],
+      characters: this.fb.group({
+        'character-0': this.fb.group(new Character())
+      })
     });
   }
 

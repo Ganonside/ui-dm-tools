@@ -1,3 +1,4 @@
+import { Validators } from '@angular/forms';
 
 export const Teams = {
   Monsters: 0,
@@ -16,15 +17,19 @@ export const EffectTypes = {
 };
 
 export class Character {
-  id = 0;
-  name = '';
-  initiative = 0;
+  id: number;
+  name = ['', Validators.required];
+  initiative = [0, Validators.pattern(/-?\d+/)];
   order = 0;
-  health = 0;
-  team = Teams.Party1;
-  type = CharacterTypes.PC;
+  health = [0, Validators.pattern(/-?\d+/)];
+  team = [Teams.Party1, Validators.required];
+  type = [CharacterTypes.PC, Validators.required];
   effects: Effect[];
   hidden = false;
+
+  constructor(id = 0) {
+    this.id = id;
+  }
 }
 
 export class Effect {
