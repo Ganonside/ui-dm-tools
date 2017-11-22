@@ -10,16 +10,33 @@
     <h3>Character Form</h3>
     <div class="row">
       <div class="form-group">
-        <label for="" class="center-block">
-          <input class="form-control underline" formControlName="name" placeholder="Name">
-        </label>
+        <input type="text" class="form-control underline" formControlName="name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control underline" formControlName="health" placeholder="HP">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control underline" formControlName="initiative" placeholder="Initiative">
+      </div>
+      <div class="form-group">
+        <select class="form-control underline" formControlName="team">
+          <option *ngFor="let team of teams | mapToIterable" [value]="team.id">{{team.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control underline" formControlName="type">
+          <option *ngFor="let type of characterTypes | mapToIterable" [value]="type.id">{{type.name}}</option>
+        </select>
       </div>
     </div>
+
     <div class="row">
       <p>{{ characterForm.value | json }}</p>
     </div>
+
     <div class="row">
       <p>{{ characterForm.status | json }}</p>
     </div>
   </form>
 </div>
+6

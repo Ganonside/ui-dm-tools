@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Character, CharacterTypes, Effect, EffectTypes, Teams } from './character-model'
+import { Character, CharacterTypes, Effect, EffectTypes, Teams } from './character-model';
+import { MapToIterablePipe } from './mapToIterable.pipe';
 
 @Component({
   selector: 'app-combat',
@@ -14,26 +15,25 @@ export class CombatComponent implements OnInit {
   public turn: number;
 
   characterForm: FormGroup;
+  characterTypes = CharacterTypes;
+  effectTypes = EffectTypes;
+  teams = Teams;
 
   constructor(private fb: FormBuilder) {
-    this.createForm();
-  }
-
-  ngOnInit() {
-    this.started = true;
-    this.editing = true;
-  }
-
-  createForm() {
     this.characterForm = this.fb.group({
       name: ['', Validators.required],
-      hp: 0,
+      health: 0,
       initiative: [0, Validators.required],
       team: [Teams.Party1, Validators.required],
       type: [CharacterTypes.PC, Validators.required],
       effects: [],
       hidden: [false, Validators.required],
     });
+  }
+
+  ngOnInit() {
+    this.started = true;
+    this.editing = true;
   }
 
   startCombat(): void {
