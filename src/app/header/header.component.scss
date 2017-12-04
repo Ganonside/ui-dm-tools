@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 #app-header {
-  background-image: url("../../assets/header-image.jpg");
+  background-image: $bg-header-img;
   background-size: contain;
   background-repeat: no-repeat;
   height: 12rem;
@@ -13,19 +13,14 @@
     font-size: 5rem;
     color: $text-color-1;
 
-    // If screen is <= md
-    @media screen and (max-width: 767px) {
-      padding-right: 0;
-    }
-
-    // If screen is lg
-    @media screen and (min-width: 768px) and (max-width: 991px) {
+    // If screen is md
+    @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
       padding-right: .7em;
     }
   }
 
   // If screen is <= sm
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $screen-sm-max) {
     background-image: none;
     height: auto;
 
