@@ -3,3 +3,13 @@ $bg-color-1: #67020a;
 $bg-color-2: #ccc;
 
 $text-color-1: #fff;
+
+// Screen Size Breakpoints
+@screen-xs-max: 575px;
+@screen-sm-min: 576px;
+@screen-sm-max: 767px;
+@screen-md-min: 768px;
+@screen-md-max: 991px;
+@screen-lg-min: 992px;
+@screen-lg-max: 1199px;
+@screen-xl-min: 1200px;

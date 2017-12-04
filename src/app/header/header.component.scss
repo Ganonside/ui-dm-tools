@@ -13,12 +13,19 @@
     font-size: 5rem;
     color: $text-color-1;
 
-    @media (max-width: 1000px) {
+    // If screen is <= md
+    @media screen and (max-width: 767px) {
       padding-right: 0;
+    }
+
+    // If screen is lg
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      padding-right: .7em;
     }
   }
 
-  @media (max-width: 675px) {
+  // If screen is <= sm
+  @media screen and (max-width: 767px) {
     background-image: none;
     height: auto;
 
