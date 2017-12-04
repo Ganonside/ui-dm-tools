@@ -12,5 +12,21 @@
     padding: 6rem 3em 2rem 0;
     font-size: 5rem;
     color: $text-color-1;
+
+    @media (max-width: 1000px) {
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 675px) {
+    background-image: none;
+    height: auto;
+
+    h1 {
+      font-size: 3rem;
+      padding: inherit;
+      text-align: center;
+      vertical-align: middle;
+    }
   }
 }
