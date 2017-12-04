@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { ToolsModule } from './tools/tools.module';
 import { CombatModule } from './combat/combat.module';
 
+import { CombatService } from './combat.service';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -17,7 +19,7 @@ import { HeaderComponent } from './header/header.component';
     ToolsModule,
     CombatModule
   ],
-  providers: [],
+  providers: [CombatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CombatService } from '../combat.service';
+
 @Component({
   selector: 'app-combat',
   templateUrl: './combat.component.html',
@@ -7,16 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CombatComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public combatService: CombatService
+  ) { }
 
   ngOnInit() {
   }
 
-  addCharacter() {
-
+  addCharacter(): void {
+    this.combatService.addCharacter();
   }
 
-  startCombat() {
-
+  startCombat(): void {
+    console.log(this.combatService.characters);
   }
 }
