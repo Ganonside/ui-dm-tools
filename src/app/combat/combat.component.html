@@ -11,6 +11,10 @@
   </div>
 
   <div class="row">
+    <app-character [id]="0"></app-character>
+  </div>
+
+  <div class="row">
     {{ this.combatService.characters | json }}
   </div>
 </div>

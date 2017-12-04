@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Character, mockCharacters } from './combat/character-model';
+import { Character, mockCharacters } from './combat/character/character-model';
 
 @Injectable()
 export class CombatService {
@@ -16,6 +16,15 @@ export class CombatService {
 
     const nextId = this.nextCharacterId();
     this.characters.push(new Character(nextId));
+  }
+
+  getCharacter(id: number): Character {
+    return this.characters.find(c => c.id === id);
+  }
+
+  updateCharacter(data: Character): void {
+    let iCharacter = this.characters.findIndex(c => c.id === data.id);
+    this.characters[iCharacter] = data;
   }
 
   private nextCharacterId(): number {
