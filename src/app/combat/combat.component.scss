@@ -9,4 +9,12 @@
   .row { // try the `.no-gutters` class
     margin: unset;
   }
+
+  .row + .row {
+    margin-top: .7em;
+  }
+
+  .container-fluid {
+    margin-bottom: .7em;
+  }
 }

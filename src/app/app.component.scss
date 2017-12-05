@@ -4,3 +4,7 @@
   background-image: $bg-img;
   min-height: 100vh;
 }
+
+.row + .row {
+  margin-top: .7em;
+}
