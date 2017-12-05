@@ -25,11 +25,15 @@ export class CharacterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.characterForm.setValue(this.combatService.getCharacter(this._id));
+    this.characterForm.patchValue(this.combatService.getCharacter(this._id));
   }
 
   ngOnChanges() {
-    this.characterForm.setValue(this.combatService.getCharacter(this._id));
+    const changes = this.combatService.getCharacter(this._id);
+
+    if (changes !== this.characterForm.value) {
+      this.characterForm.patchValue(this.combatService.getCharacter(this._id));
+    }
   }
 
   @Input()
@@ -38,8 +42,10 @@ export class CharacterComponent implements OnInit {
   }
 
   handleFormChange() {
-    this.characterForm.valueChanges.subscribe(data => {
-      this.combatService.updateCharacter(data);
+    this.characterForm.valueChanges.forEach(data => {
+      if (this.characterForm.dirty) {
+        this.combatService.updateCharacter(data);
+      }
     });
   }
 }

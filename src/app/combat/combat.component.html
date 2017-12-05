@@ -10,9 +10,7 @@
     </button>
   </div>
 
-  <div class="row">
-    <app-character [id]="0"></app-character>
-  </div>
+  <app-character class="row" *ngFor="let c of combatService.characters" [id]="c.id"></app-character>
 
   <div class="row">
     {{ this.combatService.characters | json }}

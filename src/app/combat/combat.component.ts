@@ -21,6 +21,10 @@ export class CombatComponent implements OnInit {
   }
 
   startCombat(): void {
-    console.log(this.combatService.characters);
+
+  }
+
+  reset(): void {
+    this.combatService.characters = [];
   }
 }

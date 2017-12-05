@@ -7,13 +7,11 @@ export class CombatService {
   public characters: Character[];
 
   constructor() {
-    // this.characters = [ new Character() ];
+    this.characters = [ new Character() ];
     this.characters = mockCharacters;
   }
 
   addCharacter(): void {
-    console.log(arguments);
-
     const nextId = this.nextCharacterId();
     this.characters.push(new Character(nextId));
   }
@@ -24,7 +22,9 @@ export class CombatService {
 
   updateCharacter(data: Character): void {
     let iCharacter = this.characters.findIndex(c => c.id === data.id);
-    this.characters[iCharacter] = data;
+
+    // Need to use Object.assign otherwise it will destroy the previous object, causing issues
+    this.characters[iCharacter] = Object.assign(this.characters[iCharacter], data);
   }
 
   private nextCharacterId(): number {

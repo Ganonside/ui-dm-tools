@@ -2,7 +2,7 @@
 
 export class Character {
   id: number;
-  name: string;
+  name = '';
 
   constructor(id = 0) {
     this.id = id;
