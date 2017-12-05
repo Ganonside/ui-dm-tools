@@ -1,12 +1,16 @@
 
-<div id="app-character" class="container-fluid">
-  <form [formGroup]="characterForm" novalidate>
-    <div class="row">
-      <p>ID: {{_id}}</p>
-      <div class="form-group">
-        <input type="text" class="form-control underline" formControlName="name" placeholder="Name">
+<div id="app-character" class="container card col">
+  <div class="card-body">
+    <form [formGroup]="characterForm" novalidate>
+      <div class="row">
+        <div class="form-group">
+          <input type="text" class="form-control underline" formControlName="name" placeholder="Name">
+        </div>
       </div>
-      {{ characterForm.value | json }}
-    </div>
-  </form>
+
+      <div class="row">
+        {{ characterForm.value | json }}
+      </div>
+    </form>
+  </div>
 </div>

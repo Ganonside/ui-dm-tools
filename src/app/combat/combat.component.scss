@@ -17,4 +17,8 @@
   .container-fluid {
     margin-bottom: .7em;
   }
+
+  @media screen and (max-width: $screen-xs-max) {
+    margin: 0;
+  }
 }
