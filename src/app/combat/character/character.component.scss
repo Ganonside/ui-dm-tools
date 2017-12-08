@@ -1,10 +1,10 @@
 @import "../../../styles/variables";
 
-#app-character {
+// input[type="number"]::-webkit-inner-spin-button {
+//   opacity: 1;
+// }
 
-}
-
-input.underline, select.underline {
+.underline {
   background: transparent;
   border: 0;
   border-bottom: 3px solid black;
@@ -21,6 +21,14 @@ select.underline {
   -moz-appearance: none;
 }
 
-.form-group + .form-group {
-  margin-left: 1rem;
+.strong {
+  font-weight: bold;
 }
+
+// .form-group + .form-group {
+//   margin-left: 1rem;
+// }
+
+// .small {
+//   min-width: 4em;
+// }

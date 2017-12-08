@@ -11,17 +11,17 @@
   </div> -->
 
   <div class="row">
-    <div class="container-fluid col-sm-12 col-md-8 col-xl-10">
+    <div class="container-fluid col-sm-12 col-md-9 col-xl-10">
+      <app-character class="row" *ngFor="let c of combatService.characters" [id]="c.id"></app-character>
+
       <div class="row">
         <button class="btn btn-primary col" (click)="addCharacter()">
           Add a Character
         </button>
       </div>
-
-      <app-character class="row" *ngFor="let c of combatService.characters" [id]="c.id"></app-character>
     </div>
 
-    <div class="container-fluid col-sm-12 col-md-4 col-xl-2">
+    <div class="container-fluid col-sm-12 col-md-3 col-xl-2">
       <div class="row">
         <button class="btn btn-secondary col" (click)="startCombat()">
           Start
