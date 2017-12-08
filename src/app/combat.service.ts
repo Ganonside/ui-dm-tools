@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { Character, mockCharacters } from './combat/character/character-model';
+import { Character } from './combat/character/character-model';
+import { mockCharacters } from './combat/character/mocks';
 
 @Injectable()
 export class CombatService {
   public characters: Character[];
 
   constructor() {
-    this.characters = [ new Character() ];
+    this.characters = [ new Character(0) ];
     this.characters = mockCharacters;
   }
 
@@ -25,6 +26,11 @@ export class CombatService {
 
     // Need to use Object.assign otherwise it will destroy the previous object, causing issues
     this.characters[iCharacter] = Object.assign(this.characters[iCharacter], data);
+  }
+
+  removeEffect(iChar: number, iEff: number, cb: any) {
+    this.characters[iChar].effects.splice(iEff, 1);
+    cb(this.characters[iChar].effects);
   }
 
   private nextCharacterId(): number {

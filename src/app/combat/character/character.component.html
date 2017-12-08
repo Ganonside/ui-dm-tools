@@ -2,41 +2,39 @@
 <div id="app-character" class="container-fluid card character-card">
   <div class="card-body">
     <form [formGroup]="characterForm" novalidate>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md">
-          <input type="text" class="form-control underline" formControlName="name" placeholder="Name">
+      <div class="form-row">
+        <div class="form-group col-sm-12 col-md">
+          <input type="text" class="form-control underline no-pl" formControlName="name" placeholder="Name">
         </div>
 
-        <div class="form-group col-xs-6 col-md-3">
+        <div class="form-group col-sm-6 col-md-3">
           <div class="input-group">
-            <div class="input-group-addon underline strong">AC:</div>
-            <input type="number" class="form-control underline" formControlName="ac">
+            <div class="input-group-addon underline strong no-pl no-pr">AC:</div>
+            <input type="number" class="form-control underline no-pr" formControlName="ac">
           </div>
         </div>
 
-        <div class="form-group col-xs-6 col-md-3">
+        <div class="form-group col-sm-6 col-md-3">
           <div class="input-group">
-            <div class="input-group-addon underline strong">HP:</div>
-            <input type="number" class="form-control underline" formControlName="hp">
+            <div class="input-group-addon underline strong no-pl no-pr">HP:</div>
+            <input type="number" class="form-control underline no-pr" formControlName="hp">
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-3 container-fluid">
-          <div class="row">
-            <div class="form-group col">
+          <div class="form-row">
+            <div class="form-group col-sm-6 col-md-12">
               <div class="input-group">
-                <div class="input-group-addon underline strong">Init:</div>
-                <input type="number" class="form-control underline" formControlName="initiative">
+                <div class="input-group-addon underline strong no-pl no-pr">Init:</div>
+                <input type="number" class="form-control underline no-pr" formControlName="initiative">
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="form-group col">
+            <div class="form-group col-sm-6 col-md-12">
               <div class="input-group">
-                <div class="input-group-addon underline strong">Team</div>
+                <div class="input-group-addon underline strong no-pl no-pr">Team</div>
                 <select class="form-control underline" formControlName="teamId">
                   <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
                 </select>
@@ -45,21 +43,42 @@
           </div>
         </div>
 
-        <div class="col-md-2">
-          <h6 class="strong">Effects:</h6>
-        </div>
-
         <div class="col-md container-fluid">
           <div class="row">
-            <button class="btn btn-secondary col" (click)="addEffect()">
-              Add an Effect
-            </button>
+            <div class="col-12">
+              <h6 class="strong">Effects:</h6>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 container-fluid" formArrayName="effects">
+              <div class="form-row" *ngFor="let effect of effects.controls; let i=index" [formGroupName]="i">
+                <div class="form-group col-sm-5 col-lg-7">
+                  <input type="text" class="form-control underline no-pl" formControlName="description" placeholder="Description">
+                </div>
+
+                <div class="form-group col-sm-6 col-lg-4">
+                  <div class="input-group">
+                    <input type="number" class="form-control underline no-pl" formControlName="roundsLeft">
+                    <div class="input-group-addon underline no-pl no-pr">rounds</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-1">
+                  <span class="form-control underline" (click)="removeEffect(i)">X</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn btn-secondary col-12" (click)="addEffect()">
+                    Add an Effect
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        {{ characterForm.value | json }}
       </div>
     </form>
   </div>

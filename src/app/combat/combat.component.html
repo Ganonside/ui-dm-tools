@@ -12,7 +12,7 @@
 
   <div class="row">
     <div class="container-fluid col-sm-12 col-md-9 col-xl-10">
-      <app-character class="row" *ngFor="let c of combatService.characters" [id]="c.id"></app-character>
+      <app-character class="row" *ngFor="let c of combatService.characters" [character]="c"></app-character>
 
       <div class="row">
         <button class="btn btn-primary col" (click)="addCharacter()">
