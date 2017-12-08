@@ -5,14 +5,13 @@ export class Effect {
 }
 
 export class Team {
-  id: number;
   name: string;
   color: string;
 }
 
 export const teams = [
-  Object.assign(new Team(), { id: 0, name: 'Blue', color: 'blue' }),
-  Object.assign(new Team(), { id: 1, name: 'Red', color: 'red' })
+  Object.assign(new Team(), { name: 'Blue', color: 'blue' }),
+  Object.assign(new Team(), { name: 'Red', color: 'red' })
 ];
 
 export class Character {
@@ -21,7 +20,7 @@ export class Character {
   ac = 0;
   hp = 0;
   initiative = 0;
-  teamId: Team;
+  team: string;
   effects = [ new Effect() ];
 
   constructor(id?) {

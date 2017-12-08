@@ -1,5 +1,5 @@
 
-<div id="app-character" class="container-fluid card character-card">
+<div id="app-character" class="container-fluid card character-card" [ngClass]="{ 'active-character': _active, teamColor: true }">
   <div class="card-body">
     <form [formGroup]="characterForm" novalidate>
       <div class="form-row">
@@ -35,8 +35,8 @@
             <div class="form-group col-sm-6 col-md-12">
               <div class="input-group">
                 <div class="input-group-addon underline strong no-pl no-pr">Team</div>
-                <select class="form-control underline" formControlName="teamId">
-                  <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+                <select class="form-control underline" formControlName="team">
+                  <option *ngFor="let t of teams" [value]="t.color">{{t.name}}</option>
                 </select>
               </div>
             </div>
@@ -64,15 +64,17 @@
                   </div>
                 </div>
 
-                <div class="form-group col-1">
-                  <span class="form-control underline" (click)="removeEffect(i)">X</span>
+                <div class="col-1">
+                  <button type="button" class="btn btn-danger">
+                    <span class="fa fa-trash-o fa-lg" (click)="removeEffect(i)"></span>
+                  </button>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
                   <button type="button" class="btn btn-secondary col-12" (click)="addEffect()">
-                    Add an Effect
+                    <span class="fa fa-plus"></span>&nbsp;Add an Effect
                   </button>
                 </div>
               </div>

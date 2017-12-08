@@ -1,12 +1,12 @@
 @import "../../../styles/variables";
 
-.character-card {
-  box-shadow: 0 0 0 0.2rem rgba(134,142,150,.5);
-}
-
 // input[type="number"]::-webkit-inner-spin-button {
 //   opacity: 1;
 // }
+
+.active-character {
+  box-shadow: 0 0 0 0.2rem rgba(134,142,150,.5);
+}
 
 .underline {
   background: transparent;
@@ -36,4 +36,28 @@ select.underline {
 
 .no-pr {
   padding-right: 0;
+}
+
+span {
+  align-items: center;
+}
+
+.team-blue {
+  background-color: $bg-light-blue;
+  border-color: $bd-light-blue;
+}
+
+.team-green {
+  background-color: $bg-light-green;
+  border-color: $bd-light-green;
+}
+
+.team-red {
+  background-color: $bg-light-red;
+  border-color: $bd-light-red;
+}
+
+.team-yellow {
+  background-color: $bg-light-yellow;
+  border-color: $bd-light-yellow;
 }

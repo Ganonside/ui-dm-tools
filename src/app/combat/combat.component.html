@@ -12,24 +12,22 @@
 
   <div class="row">
     <div class="container-fluid col-sm-12 col-md-9 col-xl-10">
-      <app-character class="row" *ngFor="let c of combatService.characters" [character]="c"></app-character>
+      <app-character class="row" *ngFor="let c of combatService.characters" [character]="c" [active]="c.id === activeCharacterId"></app-character>
 
       <div class="row">
         <button class="btn btn-primary col" (click)="addCharacter()">
-          Add a Character
+          <span class="fa fa-plus"></span>&nbsp;Add a Character
         </button>
       </div>
     </div>
 
-    <div class="container-fluid col-sm-12 col-md-3 col-xl-2">
+    <div class="container-fluid col-sm-12 col-md-3 col-xl-2 sticky">
       <div class="row">
-        <button class="btn btn-secondary col" (click)="startCombat()">
+        <button class="btn btn-success col" *ngIf="!started" (click)="startCombat()">
           Start
         </button>
-      </div>
 
-      <div class="row">
-        <button class="btn btn-secondary col">
+        <button class="btn btn-success col" *ngIf="started" (click)="next()">
           Next
         </button>
       </div>

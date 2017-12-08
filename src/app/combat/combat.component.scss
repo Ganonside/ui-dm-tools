@@ -18,6 +18,14 @@
     margin-bottom: .7em;
   }
 
+  .sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    max-height: calc(100vh - 4rem);
+    top: 4rem;
+    overflow-y: auto;
+  }
+
   @media screen and (max-width: $screen-xs-max) {
     margin: 0;
   }

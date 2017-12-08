@@ -11,9 +11,20 @@ import { Character, Effect, Team, teams } from './character-model';
   styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnChanges {
-  @Input() character: Character;
+  _active: boolean;
   teams = teams;
   characterForm: FormGroup;
+  teamColor: string;
+
+  @Input() character: Character;
+  @Input()
+  set active(active: boolean) {
+    if (this._active && !active) {
+      this.combatService.updateEffects(this.character.id, this.setEffects.bind(this));
+    }
+
+    this._active = active;
+  }
 
   constructor(
     private combatService: CombatService,
@@ -25,7 +36,7 @@ export class CharacterComponent implements OnChanges {
       ac: 0,
       hp: 0,
       initiative: 0,
-      teamId: 0,
+      team: 'blue',
       effects: this.fb.array([])
     });
 
@@ -36,6 +47,7 @@ export class CharacterComponent implements OnChanges {
     const changes = this.combatService.getCharacter(this.character.id);
     this.characterForm.patchValue(changes);
     this.setEffects(changes.effects);
+    console.log(`team-${this.characterForm.get('team').value}`)
   }
 
   setEffects(effects: Effect[]) {

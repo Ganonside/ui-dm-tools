@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { Character } from './combat/character/character-model';
+import { Character, Effect } from './combat/character/character-model';
 import { mockCharacters } from './combat/character/mocks';
 
 @Injectable()
@@ -26,6 +27,20 @@ export class CombatService {
 
     // Need to use Object.assign otherwise it will destroy the previous object, causing issues
     this.characters[iCharacter] = Object.assign(this.characters[iCharacter], data);
+  }
+
+  updateEffects(iChar: number, cb: any) {
+    let effects = this.characters[iChar].effects.map(effect => {
+      if (effect.roundsLeft) {
+        effect.roundsLeft = effect.roundsLeft - 1;
+      }
+
+      return effect;
+    });
+    effects = effects.filter(effect => effect.roundsLeft !== 0);
+
+    this.characters[iChar].effects = effects;
+    cb(this.characters[iChar].effects);
   }
 
   removeEffect(iChar: number, iEff: number, cb: any) {
