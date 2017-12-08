@@ -25,7 +25,7 @@ export class CharacterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.characterForm.patchValue(this.combatService.getCharacter(this._id));
+    this.characterForm.setValue(this.combatService.getCharacter(this._id));
   }
 
   ngOnChanges() {
@@ -39,6 +39,10 @@ export class CharacterComponent implements OnInit {
   @Input()
   set id(id: number) {
     this._id = id;
+  }
+
+  addEffect() {
+    
   }
 
   handleFormChange() {

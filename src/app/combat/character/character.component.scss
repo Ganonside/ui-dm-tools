@@ -1,5 +1,9 @@
 @import "../../../styles/variables";
 
+.character-card {
+  box-shadow: 0 0 0 0.2rem rgba(134,142,150,.5);
+}
+
 // input[type="number"]::-webkit-inner-spin-button {
 //   opacity: 1;
 // }
@@ -13,6 +17,7 @@
 }
 
 select.underline {
+  min-height: 39px;
   background: transparent;
   background-position: right 50%;
   background-repeat: no-repeat;
@@ -24,11 +29,3 @@ select.underline {
 .strong {
   font-weight: bold;
 }
-
-// .form-group + .form-group {
-//   margin-left: 1rem;
-// }
-
-// .small {
-//   min-width: 4em;
-// }

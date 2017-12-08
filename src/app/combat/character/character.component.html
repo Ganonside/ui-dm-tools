@@ -1,5 +1,5 @@
 
-<div id="app-character" class="container-fluid card">
+<div id="app-character" class="container-fluid card character-card">
   <div class="card-body">
     <form [formGroup]="characterForm" novalidate>
       <div class="row">
@@ -10,27 +10,58 @@
         <div class="form-group col-xs-6 col-md-3">
           <div class="input-group">
             <div class="input-group-addon underline strong">AC:</div>
-            <input type="number" class="form-control underline small" formControlName="ac">
+            <input type="number" class="form-control underline" formControlName="ac">
           </div>
         </div>
 
         <div class="form-group col-xs-6 col-md-3">
           <div class="input-group">
             <div class="input-group-addon underline strong">HP:</div>
-            <input type="number" class="form-control underline small">
+            <input type="number" class="form-control underline">
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-4 container-fluid">
+        <div class="col-md-3 container-fluid">
+          <div class="row">
+            <div class="form-group col">
+              <div class="input-group">
+                <div class="input-group-addon underline strong">Init:</div>
+                <input type="number" class="form-control underline">
+              </div>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="form-group col">
+              <div class="input-group">
+                <div class="input-group-addon underline strong">Team</div>
+                <select class="form-control underline" formControlName="team">
+                  <option selected>Blue</option>
+                  <option>Red</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <h6 class="strong">Effects:</h6>
+        </div>
+
+        <div class="col-md container-fluid">
+          <div class="row">
+            <button class="btn btn-secondary col" (click)="addEffect()">
+              Add an Effect
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- <div class="row">
+      <div class="row">
         {{ characterForm.value | json }}
-      </div> -->
+      </div>
     </form>
   </div>
 </div>
