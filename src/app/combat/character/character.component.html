@@ -17,7 +17,7 @@
         <div class="form-group col-xs-6 col-md-3">
           <div class="input-group">
             <div class="input-group-addon underline strong">HP:</div>
-            <input type="number" class="form-control underline">
+            <input type="number" class="form-control underline" formControlName="hp">
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
             <div class="form-group col">
               <div class="input-group">
                 <div class="input-group-addon underline strong">Init:</div>
-                <input type="number" class="form-control underline">
+                <input type="number" class="form-control underline" formControlName="initiative">
               </div>
             </div>
           </div>
@@ -37,9 +37,8 @@
             <div class="form-group col">
               <div class="input-group">
                 <div class="input-group-addon underline strong">Team</div>
-                <select class="form-control underline" formControlName="team">
-                  <option selected>Blue</option>
-                  <option>Red</option>
+                <select class="form-control underline" formControlName="teamId">
+                  <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
                 </select>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { CombatService } from '../../combat.service';
+import { Team, teams } from './character-model';
 
 @Component({
   selector: 'app-character',
@@ -10,6 +11,7 @@ import { CombatService } from '../../combat.service';
 })
 export class CharacterComponent implements OnInit {
   _id: number;
+  teams = teams;
   characterForm: FormGroup;
 
   constructor(
@@ -18,7 +20,11 @@ export class CharacterComponent implements OnInit {
   ) {
     this.characterForm = this.fb.group({
       id: null,
-      name: ''
+      name: '',
+      ac: 0,
+      hp: 0,
+      initiative: 0,
+      teamId: 0
     });
 
     this.handleFormChange();
@@ -42,7 +48,7 @@ export class CharacterComponent implements OnInit {
   }
 
   addEffect() {
-    
+
   }
 
   handleFormChange() {
