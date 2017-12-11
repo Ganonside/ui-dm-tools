@@ -24,6 +24,7 @@
     max-height: calc(100vh - 4rem);
     top: 4rem;
     overflow-y: auto;
+    z-index: 900;
   }
 
   @media screen and (max-width: $screen-xs-max) {

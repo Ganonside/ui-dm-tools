@@ -11,7 +11,9 @@ export class Team {
 
 export const teams = [
   Object.assign(new Team(), { name: 'Blue', color: 'blue' }),
-  Object.assign(new Team(), { name: 'Red', color: 'red' })
+  Object.assign(new Team(), { name: 'Red', color: 'red' }),
+  Object.assign(new Team(), { name: 'Green', color: 'green' }),
+  Object.assign(new Team(), { name: 'Yellow', color: 'yellow' })
 ];
 
 export class Character {

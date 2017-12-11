@@ -11,16 +11,6 @@
   </div> -->
 
   <div class="row">
-    <div class="container-fluid col-sm-12 col-md-9 col-xl-10">
-      <app-character class="row" *ngFor="let c of combatService.characters" [character]="c" [active]="c.id === activeCharacterId"></app-character>
-
-      <div class="row">
-        <button class="btn btn-primary col" (click)="addCharacter()">
-          <span class="fa fa-plus"></span>&nbsp;Add a Character
-        </button>
-      </div>
-    </div>
-
     <div class="container-fluid col-sm-12 col-md-3 col-xl-2 sticky">
       <div class="row">
         <button class="btn btn-success col" *ngIf="!started" (click)="startCombat()">
@@ -32,9 +22,15 @@
         </button>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    {{ this.combatService.characters | json }}
+    <div class="container-fluid col-sm-12 col-md-9 col-xl-10">
+      <app-character class="row" *ngFor="let c of combatService.characters" [character]="c" [active]="c.id === activeCharacterId"></app-character>
+
+      <div class="row">
+        <button class="btn btn-primary col" (click)="addCharacter()">
+          <span class="fa fa-plus"></span>&nbsp;Add a Character
+        </button>
+      </div>
+    </div>
   </div>
 </div>

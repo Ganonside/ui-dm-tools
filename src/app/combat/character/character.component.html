@@ -1,5 +1,5 @@
 
-<div id="app-character" class="container-fluid card character-card" [ngClass]="{ 'active-character': _active, teamColor: true }">
+<div id="app-character" class="container-fluid card character-card" [ngClass]="[ teamColor, _active ? 'active-character' : '' ]">
   <div class="card-body">
     <form [formGroup]="characterForm" novalidate>
       <div class="form-row">

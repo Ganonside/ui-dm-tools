@@ -47,7 +47,7 @@ export class CharacterComponent implements OnChanges {
     const changes = this.combatService.getCharacter(this.character.id);
     this.characterForm.patchValue(changes);
     this.setEffects(changes.effects);
-    console.log(`team-${this.characterForm.get('team').value}`)
+    this.teamColor = `team-${this.characterForm.get('team').value}`;
   }
 
   setEffects(effects: Effect[]) {
@@ -72,6 +72,7 @@ export class CharacterComponent implements OnChanges {
     this.characterForm.valueChanges.subscribe(character => {
       if (this.characterForm.dirty) {
         this.combatService.updateCharacter(character);
+        this.teamColor = `team-${this.characterForm.get('team').value}`;
       }
     });
   }
